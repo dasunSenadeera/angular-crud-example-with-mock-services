@@ -1,0 +1,26 @@
+<app-navigation-bar></app-navigation-bar>
+
+<h1 align="center">All Customers</h1>
+
+<table class="table">
+	<thead class="thead-light">
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Phone</th>
+			<th scope="col">Email</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let customer of customerList">
+			<td>{{customer.name}}</td>
+			<td>{{customer.phone}}</td>
+			<td>{{customer.email}}</td>
+    
+			<td>
+				<button type="button" class="btn btn-success mr-1" (click)="viewCustomer(customer._id)">Update</button>
+				<button type="button" class="btn btn-danger" (click)="deleteCustomer(customer._id)">Delete</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

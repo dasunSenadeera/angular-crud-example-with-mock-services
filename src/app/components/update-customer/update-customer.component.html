@@ -1,0 +1,40 @@
+<app-navigation-bar></app-navigation-bar>
+
+<h1 align="center">Update Customer</h1>
+
+<div class="col-md-4 m-5 pb-5">
+  <form [formGroup]="updateCustomerForm" (ngSubmit)="updateCustomer()">
+    <div class="form-group">
+      <label>Customer Name : </label>
+      <input type="text" class="form-control" formControlName="name" placeholder="Enter customer name">
+      <span class="warning" *ngIf="updateCustomerForm.controls['name'].errors?.required">
+        *Customer name is required </span>
+    </div>
+    <div class="form-group">
+      <label>Customer Phone : </label>
+      <input type="text" class="form-control" formControlName="phone" placeholder="Enter customer phone">
+    </div>
+
+    <div class="form-group">
+      <label>Customer Age : </label>
+      <input type="text" class="form-control" formControlName="age" placeholder="Enter customer age">
+    </div>
+
+    <div class="form-group">
+      <label>Customer Address : </label>
+      <input type="text" class="form-control" formControlName="address" placeholder="Enter customer address">
+    </div>
+
+
+    <div class="form-group">
+      <label>Customer email : </label>
+      <input type="text" class="form-control" formControlName="email" placeholder="Enter customer email">
+      <span class="warning" *ngIf="updateCustomerForm.controls['email'].errors?.email">
+        *Please enter a valid email </span>
+    </div>
+    <button type="reset" class="btn btn-warning mr-1">Reset</button>
+    <button type="submit" [disabled]="!updateCustomerForm.valid" class="btn btn-primary">Update Customer</button>
+  </form>
+</div>
+
+{{updateCustomerForm.value | json}}
